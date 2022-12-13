@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>微笑在线</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-primary">微笑在线</h2>
+        <div class="panel panel-primary">
+            <div class="panel-heading">影视</div>
+            <div id="l1" class="panel-body" style="width:auto;height:500px;">
+            </div>
+            <div id="a1"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">操作</div>
+                    <div class="panel-body minHieht">
+                        <div id="divEdit" class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <form class="form-horizontal" id="loginForm">
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">播放地址</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputName" name="videoUrl"
+                                                placeholder="请粘贴影视播放地址到这里，再点击播放按钮在线观看" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="selectVip" class="col-sm-2 control-label">解析接口</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="selectVip" name="vipUrl">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="button" class="btn btn-primary" style="width: 100px;"
+                                                onclick="onPlay()">
+                                                播放
+                                            </button>
+                                            <button type="button" class="btn btn-primary" style="width: 100px;"
+                                                onclick="clearUrl()">
+                                                清空
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="course3">
+                    <p><a target="_blank" href="https://www.le.com/"><img src="image/letvlogo.png" alt="图片"
+                                class="img-responsive"></a></p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course3">
+                    <p><a target="_blank" href="https://v.qq.com/"><img src="image/qqlogo.png" alt="图片"
+                                class="img-responsive"></a></p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course3">
+                    <p><a target="_blank" href="https://www.iqiyi.com"><img src="image/iqiyi.png" alt="图片"
+                                class="img-responsive"></a></p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course3">
+                    <p><a target="_blank" href="https://www.youku.com/"><img src="image/youkulogo.png" alt="图片"
+                                class="img-responsive"></a></p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course3">
+                    <p><a target="_blank" href="https://www.mgtv.com/"><img src="image/hunantvlogo.png" alt="图片"
+                                class="img-responsive"></a></p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course3">
+                    <p><a target="_blank" href="https://tv.sohu.com/"><img src="image/sohulogo.png" alt="图片"
+                                class="img-responsive"></a></p>
+                </div>
+            </div>
+        </div>
+        <p><img class="img-responsive center-block" src="image/gold.jpg" /></p>
+        <h4 class="text-center">Copyright ©2022-2025 东临天下 free_open@163.com</h4>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/data.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            slectList();
+            var dWidth = $("#divEdit").width() - 120;
+            $("#inputName").css("width", dWidth)
+            $("#selectVip").css("width", dWidth)
+        });
+
+        function slectList() {
+            for (var i = 0; i < dataList.length; i++) {
+                $("#selectVip").append("<option value='" + dataList[i].url + "'>" + dataList[i].name + "</option>");
+            }
+        }
+
+        function onPlay() {
+            var info = $.Util.serializeJSON($("#loginForm"));
+            if (info.videoUrl != "") {
+                $("#l1").hide();
+                document.getElementById('a1').innerHTML = "<iframe width='100%' height='500' allowfullscreen=“true” frameborder='0' scrolling='no' src='" + info.vipUrl + info.videoUrl + "'></iframe>";
+            }
+            else {
+                alert("输入地址不能为空");
+            }
+        };
+
+        function clearUrl() {
+            $("#inputName").val("");
+        }
+
+        document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 123) {
+                mAlert();
+                e.returnValue = false;
+                return (false);
+            }
+        }
+
+        function mAlert() {
+            window.close();
+            window.location = "https://www.baidu.com";
+        }
+
+        setInterval(function () {
+            debugger;
+        }, 50)
+
+        document.oncontextmenu = function () { return false; };
+
+    </script>
+</body>
+
+</html>
