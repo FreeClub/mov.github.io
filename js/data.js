@@ -1,10 +1,6 @@
 var dataList =
     [
         {
-            url: "https://jx.xiaolangyun.com/?url=",
-            name: "线路1"
-        },
-        {
             url: "https://api.jiexi.la/?url=",
             name: "线路2"
         },
