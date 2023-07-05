@@ -1,7 +1,7 @@
 var dataList =
     [
         {
-            url: "https://api.jiexi.la/?url=",
+            url: "https://www.playm3u8.cn/jiexi.php?url=",
             name: "线路1"
         },
         {
@@ -22,7 +22,7 @@ var dataList =
             name: "线路5"
         },
         {
-            url: "https://www.playm3u8.cn/jiexi.php?url=",
+            url: "https://api.jiexi.la/?url=",
             name: "线路6"
         }
     ];
