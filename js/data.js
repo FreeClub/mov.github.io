@@ -2,6 +2,6 @@ var dataList =
     [
         {
             url: "https://www.8090g.cn/?url=",
-            name: "线路2"
+            name: "线路1"
         }
     ];
