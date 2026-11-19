@@ -5,11 +5,11 @@ var dataList =
             name: "线路1"
         },
         {
-            url: "https://jx.xmflv.com/?url=",
+            url: "https://api.2020jx.com/?url=",
             name: "线路2"
         },
         {
-            url: "https://jx.m3u8.pw/?url=",
+            url: "https://jx.dabaiapi.com/?url=",
             name: "线路3"
         }
     ];
